@@ -80,7 +80,7 @@
           <th></th>
         {/if}
         {#each columns as col}
-          <th class={col.sortable ? "cursor-pointer" : ""} on:click={() => col.sortable && handleSort(col.key)}>
+          <th class={col.sortable ? "cursorpointer" : ""} on:click={() => col.sortable && handleSort(col.key)}>
             {col.title}
             {col.key === sortColumn ? (sortDirection === "asc" ? "↑" : "↓") : ""}
           </th>
@@ -89,7 +89,7 @@
     </thead>
     <tbody>
       {#each filteredData as item}
-        <tr class="cursor-pointer fkl-svelte-table-row">
+        <tr class="fkl-svelte-table-row">
           {#if selectable}
             <th>
               <label>
@@ -127,3 +127,9 @@
     </tfoot>
   </table>
 </div>
+
+<style>
+  .cursorpointer {
+    cursor: pointer;
+  }
+</style>
