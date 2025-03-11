@@ -8,10 +8,10 @@
   export let uppercase = false;
 
   const alertClasses = {
-    info: "alert-info",
-    success: "alert-success",
-    warning: "alert-warning",
-    error: "alert-error",
+    info: "fkl-svelte-alert-info",
+    success: "fkl-svelte-alert-success",
+    warning: "fkl-svelte-alert-warning",
+    error: "fkl-svelte-alert-error",
   };
 
   const alertIcon = {
@@ -22,7 +22,7 @@
   };
 </script>
 
-<alert class={`alert ${alertClasses[type]} flex justify-center w-auto shadow`}>
+<alert class={`fkl-svelte-alert ${alertClasses[type]} flex justify-center w-auto shadow`}>
   {#if !disableIcon}
     <svelte:component this={alertIcon[type]} class="h-6 w-6" />
   {/if}

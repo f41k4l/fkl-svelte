@@ -3,9 +3,17 @@
   - [With `pnpm`](#with-pnpm)
   - [With `yarn`](#with-yarn)
   - [With `bun`](#with-bun)
-  - [Adding class to your css](#adding-class-to-your-css)
 - [Dependencies](#dependencies)
 - [Example usage](#example-usage)
+  - [Alert](#alert)
+    - [Component](#component)
+    - [CSS](#css)
+  - [Toast](#toast)
+    - [Component](#component-1)
+    - [CSS](#css-1)
+  - [Table](#table)
+    - [Component](#component-2)
+    - [CSS](#css-2)
 
 # Installation
 
@@ -33,23 +41,6 @@ yarn install git+https://github.com/f41k4l/fkl-svelte.git#main
 bun install git+https://github.com/f41k4l/fkl-svelte.git#main
 ```
 
-## Adding class to your css
-
-```css
-@import "tailwindcss";
-@plugin "daisyui"
-
-@layer base {
-  .fkl-svelte-table {
-    @apply table;
-  }
-
-  .fkl-svelte-table-row {
-    @apply hover:bg-neutral;
-  }
-}
-```
-
 # Dependencies
 
 - Svelte (can run without sveltekit)
@@ -63,9 +54,81 @@ bun install -D svelte tailwindcss daisyui lucide-svelte @tailwindcss/vite
 
 # Example usage
 
+## Alert
+
+### Component
+
 ```svelte
 <script>
-  import Table from 'fkl-svelte/Table.svelte';
+  import Alert from 'fkl-svelte/alert';
+</script>
+
+<Alert text="Hello world" type="success" description="This is a success alert" />
+```
+
+### CSS
+
+```css
+@import "tailwindcss";
+@plugin "daisyui"
+
+@layer base {
+  .fkl-svelte-alert {
+    @apply alert;
+  }
+
+  .fkl-svelte-alert-info {
+    @apply alert-info;
+  }
+
+  .fkl-svelte-alert-success {
+    @apply alert-success;
+  }
+
+  .fkl-svelte-alert-warning {
+    @apply alert-warning;
+  }
+
+  .fkl-svelte-alert-error {
+    @apply alert-error;
+  }
+}
+```
+
+## Toast
+
+### Component
+
+```svelte
+<script>
+  import Toast from 'fkl-svelte/toast';
+  import { T } from 'fkl-svelte/toast';
+</script>
+
+<button on:click={() => T("Hello world", "success")}></button>
+<Toast />
+```
+
+### CSS
+
+```css
+@import "tailwindcss";
+@plugin "daisyui"
+
+@layer base {
+  .fkl-svelte-toast {
+    @apply toast-bottom toast-center cursor-pointer;
+  }
+}
+```
+
+## Table
+
+### Component
+
+```svelte
+<script>
+  import Table from 'fkl-svelte/table';
 
   let searchValue = ""
 
@@ -121,4 +184,10 @@ bun install -D svelte tailwindcss daisyui lucide-svelte @tailwindcss/vite
     bind:selectedRows
   />
 {/await}
+```
+
+### CSS
+
+```css
+
 ```

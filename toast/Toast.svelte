@@ -14,11 +14,7 @@
 </script>
 
 {#if text}
-  <button
-    transition:fly={{ y: 50, duration: 400 }}
-    on:click={() => (text = "")}
-    class="toast toast-bottom toast-center cursor-pointer"
-  >
+  <button transition:fly={{ y: 50, duration: 400 }} on:click={() => (text = "")} class="fkl-svelte-toast">
     <Alert {text} {type} />
   </button>
 {/if}
