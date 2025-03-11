@@ -1,5 +1,5 @@
 declare module "fkl-svelte/table" {
-  import type { ComponentPropsWithoutRef } from "svelte";
+  import type { SvelteComponentTyped } from "svelte";
 
   interface Column {
     title: string;
@@ -12,7 +12,7 @@ declare module "fkl-svelte/table" {
     component?: any;
   }
 
-  export interface TableProps extends ComponentPropsWithoutRef<Table> {
+  export interface TableProps {
     columns: Column[];
     data: any[];
     onClickRow?: (id: any) => void;
@@ -21,4 +21,6 @@ declare module "fkl-svelte/table" {
     selectedRows?: any[];
     tableClass?: string;
   }
+
+  export default class Table extends SvelteComponentTyped<TableProps, any, any> {}
 }
