@@ -1,5 +1,8 @@
 <script>
-  import { BadgeAlert, BadgeCheck, BadgeInfo, BadgeX } from "lucide-svelte";
+  import BadgeAlert from "lucide-svelte/icons/badge-alert";
+  import BadgeCheck from "lucide-svelte/icons/badge-check";
+  import BadgeInfo from "lucide-svelte/icons/badge-info";
+  import BadgeX from "lucide-svelte/icons/badge-x";
 
   export let text;
   export let description = "";

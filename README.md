@@ -5,15 +5,18 @@
   - [With `bun`](#with-bun)
 - [Dependencies](#dependencies)
 - [Example usage](#example-usage)
-  - [Alert](#alert)
+  - [ScrollTop](#scrolltop)
     - [Component](#component)
     - [CSS](#css)
-  - [Toast](#toast)
+  - [Alert](#alert)
     - [Component](#component-1)
     - [CSS](#css-1)
-  - [Table](#table)
+  - [Toast](#toast)
     - [Component](#component-2)
     - [CSS](#css-2)
+  - [Table](#table)
+    - [Component](#component-3)
+    - [CSS](#css-3)
 
 # Installation
 
@@ -53,6 +56,39 @@ bun install -D svelte tailwindcss daisyui lucide-svelte @tailwindcss/vite
 ```
 
 # Example usage
+
+## ScrollTop
+
+### Component
+
+```svelte
+<script>
+  import ScrollTop from 'fkl-svelte/scrolltop';
+</script>
+
+<ScrollTop />
+```
+
+### CSS
+
+```css
+@import "tailwindcss";
+@plugin "daisyui"
+
+@layer base {
+  .fkl-svelte-scrolltop {
+    @apply toast top-10;
+
+    /* To top end */
+    --toast-y: 0;
+    --toast-x: 0;
+  }
+
+  .fkl-svelte-scrolltop-button {
+    @apply btn btn-lg btn-square btn-primary;
+  }
+}
+```
 
 ## Alert
 
@@ -106,12 +142,27 @@ bun install -D svelte tailwindcss daisyui lucide-svelte @tailwindcss/vite
 </script>
 
 <button on:click={() => T("Hello world", "success")}></button>
-<Toast toastClass="toast toast-bottom toast-center cursor-pointer" />
+<Toast />
 ```
 
 ### CSS
 
-Directly via `toastClass` prop
+```css
+@import "tailwindcss";
+@plugin "daisyui"
+
+@layer base {
+  .fkl-svelte-toast {
+    @apply toast cursor-pointer;
+    top: auto;
+    bottom: calc(0.25rem * 0);
+    --toast-y: 0;
+    inset-inline-start: calc(1 / 2 * 100%);
+    inset-inline-end: calc(1 / 2 * 100%);
+    --toast-x: -50%;
+  }
+}
+```
 
 ## Table
 
@@ -180,5 +231,16 @@ Directly via `toastClass` prop
 ### CSS
 
 ```css
+@import "tailwindcss";
+@plugin "daisyui"
 
+@layer base {
+  .fkl-svelte-table {
+    @apply table;
+  }
+
+  .fkl-svelte-table-row {
+    @apply hover:bg-neutral;
+  }
+}
 ```
