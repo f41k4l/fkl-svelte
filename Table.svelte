@@ -73,7 +73,7 @@
 </script>
 
 <div class="overflow-x-auto">
-  <table class={`svelte-table ${tableClass}`}>
+  <table class={`fkl-svelte-table ${tableClass}`}>
     <thead>
       <tr>
         {#if selectable}
@@ -89,7 +89,7 @@
     </thead>
     <tbody>
       {#each filteredData as item}
-        <tr class="cursor-pointer svelte-table-row">
+        <tr class="cursor-pointer fkl-svelte-table-row">
           {#if selectable}
             <th>
               <label>
