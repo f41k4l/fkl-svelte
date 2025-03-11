@@ -55,6 +55,11 @@ bun install git+https://github.com/f41k4l/fkl-svelte.git#main
 - Svelte (can run without sveltekit)
 - TailwindCSS
 - DaisyUI
+- Lucide Icons
+
+```bash
+bun install -D svelte tailwindcss daisyui lucide-svelte @tailwindcss/vite
+```
 
 # Example usage
 
