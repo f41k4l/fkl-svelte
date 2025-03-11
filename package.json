@@ -2,10 +2,8 @@
     "name": "fkl-svelte",
     "version": "1.0.0",
     "description": "Reusable Svelte components for f41k4l",
-    "main": "index.js",
-    "module": "index.js",
     "files": [
-      "./"
+      "./*.svelte"
     ],
     "repository": {
       "type": "git",
