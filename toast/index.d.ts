@@ -3,8 +3,9 @@ import { SvelteComponentTyped } from "svelte";
 type ToastType = "success" | "error" | "warning" | "info";
 
 export interface ToastProps {
-  text?: string;
+  text: string;
   type?: ToastType;
+  toastClass?: string;
 }
 
 export function T(text?: string, type?: ToastType): void;

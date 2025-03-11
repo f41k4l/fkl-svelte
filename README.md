@@ -106,21 +106,12 @@ bun install -D svelte tailwindcss daisyui lucide-svelte @tailwindcss/vite
 </script>
 
 <button on:click={() => T("Hello world", "success")}></button>
-<Toast />
+<Toast toastClass="toast toast-bottom toast-center cursor-pointer" />
 ```
 
 ### CSS
 
-```css
-@import "tailwindcss";
-@plugin "daisyui"
-
-@layer base {
-  .fkl-svelte-toast {
-    @apply toast-bottom toast-center cursor-pointer;
-  }
-}
-```
+Directly via `toastClass` prop
 
 ## Table
 
