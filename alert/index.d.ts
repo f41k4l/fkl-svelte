@@ -1,4 +1,4 @@
-declare module "./Alert.svelte" {
+declare module "alert" {
   import type { ComponentPropsWithoutRef } from "svelte";
   export interface AlertProps extends ComponentPropsWithoutRef<Alert> {
     text: string;
