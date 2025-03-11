@@ -1,23 +1,24 @@
 {
-    "name": "fkl-svelte",
-    "version": "1.0.0",
-    "description": "Reusable Svelte components for f41k4l",
-    "files": [
-      "./*.svelte"
-    ],
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/f41k4l/fkl-svelte.git"
-    },
-    "keywords": [
-      "svelte",
-      "component"
-    ],
-    "author": "f41k4l",
-    "license": "MIT",
-    "bugs": {
-      "url": "https://github.com/f41k4l/fkl-svelte/issues"
-    },
-    "homepage": "https://github.com/f41k4l/fkl-svelte#readme"
-  }
-  
+  "name": "fkl-svelte",
+  "version": "1.0.0",
+  "description": "Reusable Svelte components for f41k4l",
+  "files": [
+    "**/*.js",
+    "**/*.d.ts",
+    "**/*.svelte"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f41k4l/fkl-svelte.git"
+  },
+  "keywords": [
+    "svelte",
+    "component"
+  ],
+  "author": "f41k4l",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/f41k4l/fkl-svelte/issues"
+  },
+  "homepage": "https://github.com/f41k4l/fkl-svelte#readme"
+}
