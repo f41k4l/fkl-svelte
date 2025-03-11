@@ -5,7 +5,6 @@
 
   let text;
   let type;
-  let className = "";
 
   toast.subscribe((value) => {
     if (!value) return;
@@ -15,7 +14,7 @@
 </script>
 
 {#if text}
-  <button transition:fly={{ y: 50, duration: 400 }} on:click={() => (text = "")} class={className}>
+  <button transition:fly={{ y: 50, duration: 400 }} on:click={() => (text = "")} class="fkl-svelte-toast">
     <Alert {text} {type} />
   </button>
 {/if}
