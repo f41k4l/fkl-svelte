@@ -1,7 +1,7 @@
 export function clickOutside(element, callbackFunction) {
-  function onClick(event) {
-    if (!element.contains(event.target)) {
-      callbackFunction(event);
+  function onClick(clickEvent) {
+    if (!element.contains(clickEvent.target)) {
+      callbackFunction(clickEvent);
     }
   }
 
