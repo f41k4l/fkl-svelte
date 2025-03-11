@@ -1,4 +1,4 @@
-declare module "alert" {
+declare module "fkl-svelte/alert" {
   import type { ComponentPropsWithoutRef } from "svelte";
   export interface AlertProps extends ComponentPropsWithoutRef<Alert> {
     text: string;
