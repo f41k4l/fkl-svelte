@@ -7,4 +7,6 @@ export interface ToastProps {
   type?: ToastType;
 }
 
+export function T(text?: string, type?: ToastType): void;
+
 export default class Toast extends SvelteComponentTyped<ToastProps, {}, {}> {}
