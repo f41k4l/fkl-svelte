@@ -72,7 +72,7 @@
   }
 </script>
 
-<div class="overflow-x-auto">
+<div class="overflowtable">
   <table class={`fkl-svelte-table ${tableClass}`}>
     <thead>
       <tr>
@@ -93,7 +93,11 @@
           {#if selectable}
             <th>
               <label>
-                <input on:change={(e) => handleRowCheckbox(e, item.id)} type="checkbox" class="checkbox" />
+                <input
+                  on:change={(e) => handleRowCheckbox(e, item.id)}
+                  type="checkbox"
+                  class="fkl-svelte-table-checkbox"
+                />
               </label>
             </th>
           {/if}
@@ -131,5 +135,9 @@
 <style>
   .cursorpointer {
     cursor: pointer;
+  }
+
+  .overflowtable {
+    overflow-x: auto;
   }
 </style>
