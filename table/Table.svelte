@@ -147,17 +147,45 @@
 
   .overflowtable {
     overflow-x: auto;
+    max-height: 500px; /* Ajustez cette valeur selon vos besoins */
+    position: relative;
+  }
+
+  .overflowtable table {
+    width: 100%;
   }
 
   .sticky-header th {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
+    background-color: white;
     z-index: 1;
   }
 
   .sticky-footer td {
+    position: -webkit-sticky;
     position: sticky;
     bottom: 0;
+    background-color: white;
     z-index: 1;
+  }
+
+  .overflowtable tbody {
+    display: block;
+    max-height: 400px; /* Ajustez cette valeur selon vos besoins */
+    overflow-y: auto;
+  }
+
+  .overflowtable thead,
+  .overflowtable tfoot {
+    display: table;
+    width: calc(100% - 1em); /* Ajustez cette valeur pour éviter le décalage */
+  }
+
+  .overflowtable tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
   }
 </style>
