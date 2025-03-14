@@ -55,8 +55,7 @@
       filtered = data.filter((item) =>
         columns.some((col) => {
           if (!col.searchable) return false;
-          const value = col.modifier ? col.modifier(getNestedValue(item, col.key)) : getNestedValue(item, col.key);
-          return String(value).toLowerCase().includes(searchValue.toLowerCase());
+          return String(getNestedValue(item, col.key)).toLowerCase().includes(searchValue.toLowerCase());
         })
       );
     }
