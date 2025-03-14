@@ -15,7 +15,6 @@
   export let onClickRow = (id: any) => {};
   export let searchValue: string = "";
   export let selectable: boolean = false;
-  export let sticky: boolean = false;
   export let selectedRows: any[] = [];
   export let tableClass = "";
 
@@ -79,7 +78,7 @@
 
 <div class="overflowtable">
   <table class={`fkl-svelte-table ${tableClass}`}>
-    <thead class={sticky ? "sticky-header" : ""}>
+    <thead class="fkl-svelte-table-header">
       <tr>
         {#if selectable}
           <th></th>
@@ -121,7 +120,7 @@
         </tr>
       {/each}
     </tbody>
-    <tfoot class={sticky ? "sticky-footer" : ""}>
+    <tfoot class="fkl-svelte-table-footer">
       <tr>
         {#if selectable}
           <th></th>
@@ -149,13 +148,13 @@
     overflow-x: auto;
   }
 
-  .sticky-header th {
+  .fkl-svelte-table-header th {
     position: sticky;
     top: 0;
     z-index: 1;
   }
 
-  .sticky-footer td {
+  .fkl-svelte-table-footer td {
     position: sticky;
     bottom: 0;
     z-index: 1;
