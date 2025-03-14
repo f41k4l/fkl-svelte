@@ -18,6 +18,7 @@ declare module "fkl-svelte/table" {
     onClickRow?: (id: any) => void;
     searchValue?: string;
     selectable?: boolean;
+    sticky?: boolean;
     selectedRows?: any[];
     tableClass?: string;
   }
