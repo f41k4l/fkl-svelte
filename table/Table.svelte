@@ -36,10 +36,14 @@
     }
   }
 
+  function getNestedValue(item: any, key: string): any {
+    return key.split(".").reduce((obj, k) => (obj && obj[k] !== "undefined" ? obj[k] : null), item);
+  }
+
   function calcColumnSum(key: string): string {
     return filteredData
       .reduce((sum, item) => {
-        const value = item[key];
+        const value = getNestedValue(item, key);
         return sum + (typeof value === "number" ? value : 0);
       }, 0)
       .toFixed(2);
@@ -51,23 +55,7 @@
       filtered = data.filter((item) =>
         columns.some((col) => {
           if (!col.searchable) return false;
-          const keys = col.key.split(".");
-          let value = item;
-          for (const k of keys) {
-            if (value && typeof value === "object" && k in value) {
-              value = value[k];
-            } else {
-              value = undefined;
-              break;
-            }
-          }
-
-          if (value === undefined) return false;
-
-          if (col.modifier) {
-            value = col.modifier(value);
-          }
-
+          const value = col.modifier ? col.modifier(getNestedValue(item, col.key)) : getNestedValue(item, col.key);
           return String(value).toLowerCase().includes(searchValue.toLowerCase());
         })
       );
@@ -75,8 +63,8 @@
 
     if (sortColumn) {
       filtered.sort((a, b) => {
-        const aValue = a[sortColumn];
-        const bValue = b[sortColumn];
+        const aValue = getNestedValue(a, sortColumn);
+        const bValue = getNestedValue(b, sortColumn);
 
         if (aValue < bValue) return sortDirection === "asc" ? -1 : 1;
         if (aValue > bValue) return sortDirection === "asc" ? 1 : -1;
@@ -120,9 +108,12 @@
           {#each columns as { key, component, modifier }}
             <td on:click={() => onClickRow(item.id)}>
               {#if component}
-                <svelte:component this={component} value={modifier ? modifier(item[key]) : item[key]} />
+                <svelte:component
+                  this={component}
+                  value={modifier ? modifier(getNestedValue(item, key)) : getNestedValue(item, key)}
+                />
               {:else}
-                {modifier ? modifier(item[key]) : item[key]}
+                {modifier ? modifier(getNestedValue(item, key)) : getNestedValue(item, key)}
               {/if}
             </td>
           {/each}
