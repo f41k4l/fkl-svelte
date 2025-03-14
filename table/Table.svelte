@@ -51,7 +51,23 @@
       filtered = data.filter((item) =>
         columns.some((col) => {
           if (!col.searchable) return false;
-          const value = col.modifier ? col.modifier(item[col.key]) : item[col.key];
+          const keys = col.key.split(".");
+          let value = item;
+          for (const k of keys) {
+            if (value && typeof value === "object" && k in value) {
+              value = value[k];
+            } else {
+              value = undefined;
+              break;
+            }
+          }
+
+          if (value === undefined) return false;
+
+          if (col.modifier) {
+            value = col.modifier(value);
+          }
+
           return String(value).toLowerCase().includes(searchValue.toLowerCase());
         })
       );
